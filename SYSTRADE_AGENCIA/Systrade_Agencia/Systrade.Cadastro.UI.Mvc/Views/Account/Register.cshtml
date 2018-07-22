@@ -1,0 +1,386 @@
+﻿@model Systrade.Cadastro.Identity.Model.RegisterViewModel
+
+@Html.HiddenFor(model => model.AgenciaId)
+@Html.HiddenFor(model => model.EnderecoId)
+@Html.HiddenFor(model => model.UsuarioId)
+
+
+<section>
+    @using (Html.BeginForm(new { @class = "form-inline" }))
+    {
+        @Html.AntiForgeryToken()
+        <h5 class="text-left">Cadastro</h5>
+
+        <div class="form-horizontal container-fluid">
+
+            @Html.Partial("_ErrorSummary")
+
+            <h6 class="text-center alert-primary">Usuário</h6>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Nome, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Nome",
+                                autofocus = true,
+                                id = "txtregisternome",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Sobrenome, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Sobrenome",
+                                        autofocus = true,
+                                        id = "txtregistersobrenome",
+                                        maxlength = "150"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.CPF, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Cpf",
+                                        autofocus = true,
+                                        id = "txtregistercpf",
+                                        maxlength = "14"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Email, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Email",
+                                        autofocus = true,
+                                        id = "txtregisteremail",
+                                        maxlength = "150"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Celular, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Celular",
+                                        autofocus = true,
+                                        id = "txtregistercelular",
+                                        maxlength = "14"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TelefoneFixo, htmlAttributes: new { @class = "col-sm-12 col-form-label" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.TelefoneFixo, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Telefone",
+                                        autofocus = true,
+                                        id = "txtregistertelefonefixo",
+                                        maxlength = "13"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.TelefoneFixo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Login, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Login",
+                                        autofocus = true,
+                                        id = "txtregisterlogin",
+                                        maxlength = "100"
+                                    }
+                                })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Password, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Senha",
+                                        autofocus = true,
+                                        id = "txtregistersenha",
+                                        maxlength = "15"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <small class="col-sm-2 text-muted"> Deve conter entre 8 a 15 caracteres.</small>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.ConfirmPassword, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control",
+                                        placeholder = "Confirmar senha",
+                                        autofocus = true,
+                                        id = "txtregisterconfirmarsenha",
+                                        maxlength = "15"
+                                    }
+                                })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+            <h6 class="text-center alert-primary">Agência</h6>
+            <div class="form-row">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NomeFantasia, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.NomeFantasia, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Nome fantasia",
+                                autofocus = true,
+                                id = "txtregisternomeagencia",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.NomeFantasia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RazaoSocial, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.RazaoSocial, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Razão social",
+                                autofocus = true,
+                                id = "txtregisterrazaosocialagencia",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.RazaoSocial, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CNPJ, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.CNPJ, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Cnpj",
+                                autofocus = true,
+                                id = "txtregistercnpj",
+                                maxlength = "18"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TelefoneAgencia, htmlAttributes: new { @class = "col-sm-12 col-form-label" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.TelefoneAgencia, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Telefone da agência",
+                                autofocus = true,
+                                id = "txtregistertelefoneagencia",
+                                maxlength = "13"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.TelefoneAgencia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="text-center alert-primary">Endereço</h6>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Cep, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Cep",
+                                autofocus = true,
+                                id = "txtregistercepagencia",
+                                maxlength = "15"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Logradouro, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Logradouro, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Logradouro",
+                                autofocus = true,
+                                id = "txtregisterlogradouro",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Logradouro, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Complemento, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Complemento",
+                                autofocus = true,
+                                id = "txtregistercomplemento",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Numero, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Nº",
+                                autofocus = true,
+                                id = "txtregisternumero",
+                                maxlength = "6"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Cidade, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "Cidade",
+                                autofocus = true,
+                                id = "txtregistercidade",
+                                maxlength = "150"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Estado, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = "UF",
+                                autofocus = true,
+                                id = "txtregisterestado",
+                                maxlength = "2"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Salvar" class="btn btn-primary _salvar" />
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+<script src="~/Scripts/Correios/RegisterCorreios.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

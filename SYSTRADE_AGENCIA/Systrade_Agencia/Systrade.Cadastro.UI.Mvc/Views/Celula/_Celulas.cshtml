@@ -1,0 +1,20 @@
+﻿@model Systrade.Clientes.Applications.ViewModel.CelulaViewModel
+
+<div class="form-group">
+    <div class=" btn-group dropright col-md-6">
+        <button class="btn btn-primary dropdown-toggle col-md-5" type="button" id="ddlcelula" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Células
+        </button>
+
+        <div class="dropdown-menu col-md-5" aria-labelledby="ddlcelula" id="menucelula">
+
+
+            @foreach (var item in ViewBag.Celulas)
+            {
+                <a class="dropdown-item" id="@item.Value">@item.Text</a>
+            }
+
+        </div>
+    </div>
+</div>
+

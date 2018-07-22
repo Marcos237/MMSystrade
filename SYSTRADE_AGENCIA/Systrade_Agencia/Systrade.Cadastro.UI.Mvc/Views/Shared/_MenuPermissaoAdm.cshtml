@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNet.Identity
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-target="#menuadm" aria-controls="menuadm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+        </button>
+
+
+        <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown" id="menuadministrativo">
+
+            <div class="btn-group dropright">
+                <a tabindex="-1" href="#" id="itemagencia" class="dropdown-toggle nav-link _item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Agência
+                </a>
+
+                <ul class="dropdown-menu bg-danger menuadm">
+                    <li>
+
+                        @Html.ActionLink("Editar Dados", "EditarAgencia", "Agencia", routeValues: new { @id = User.Identity.GetUserId(), },
+                                    htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+
+                        @Html.ActionLink("Editar Endereços", "ListarEnderecos", "Agencia", routeValues: new { @id = User.Identity.GetUserId() },
+                                    htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+                    </li>
+                </ul>
+
+            </div>
+            <div class="btn-group dropright">
+                <a tabindex="-1" href="#" id="itemusuario" class="dropdown-toggle nav-link _item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuários
+                </a>
+
+                <ul class="dropdown-menu menuadm bg-danger" id="subitens">
+                    <li class="nav-item">
+
+                        @Html.ActionLink("Editar Usuários", "ListarUsuarios", "AgenciaUsuario", routeValues: new { @id = User.Identity.GetUserId(), },
+htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+
+                        @Html.ActionLink("Usuários Inativos", "ListarUsuariosInativos", "AgenciaUsuario", routeValues: new { @id = User.Identity.GetUserId(), },
+htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+
+                        @Html.ActionLink("Registro de Acesso", "ListarUsuarios", "RegistroAcessoAgenciaUsuario", routeValues: new { @id = User.Identity.GetUserId(), },
+htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-group dropright">
+                <a tabindex="-1" href="#" id="itemcliente" class="dropdown-toggle nav-link _item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Clientes
+                </a>
+
+                <ul class="dropdown-menu menuadm bg-danger" id="subitens">
+                    <li class="nav-item">
+
+                        @Html.ActionLink("Editar Células", "ListarCelulas", "Celula", routeValues: new { @id = User.Identity.GetUserId(), },
+htmlAttributes: new { @tabindex = -1, @class = "nav-link" })
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>

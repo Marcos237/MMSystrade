@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4DEEC85-8736-4B4F-A58B-E5BA457529E7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Systrade.Cadastro.UI.Mvc</RootNamespace>
+    <AssemblyName>Systrade.Cadastro.UI.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.6.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoRepository.Net45, Version=1.6.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoRepository.1.6.11\lib\net45\MongoRepository.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.8.1\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.8.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.12\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.0.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio, Version=5.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.9.2\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DomainEventsContainer.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Agencia\AgenciaController.cs" />
+    <Compile Include="Controllers\Agencia\AgenciaUsuarioController.cs" />
+    <Compile Include="Controllers\Agencia\RegistroAcessoAgenciaUsuarioController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Clientes\CelulaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\Eventos\EventosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PermissionHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Agencia\Agencia.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap-Yeti.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\bloqueado.png" />
+    <Content Include="Content\img\Foto.jpg" />
+    <Content Include="Content\img\foto2.jpg" />
+    <Content Include="Content\img\foto3.jpg" />
+    <Content Include="Content\img\hqdefault.jpg" />
+    <Content Include="Content\octicons\svg\alert.svg" />
+    <Content Include="Content\octicons\svg\archive.svg" />
+    <Content Include="Content\octicons\svg\arrow-down.svg" />
+    <Content Include="Content\octicons\svg\arrow-left.svg" />
+    <Content Include="Content\octicons\svg\arrow-right.svg" />
+    <Content Include="Content\octicons\svg\arrow-small-down.svg" />
+    <Content Include="Content\octicons\svg\arrow-small-left.svg" />
+    <Content Include="Content\octicons\svg\arrow-small-right.svg" />
+    <Content Include="Content\octicons\svg\arrow-small-up.svg" />
+    <Content Include="Content\octicons\svg\arrow-up.svg" />
+    <Content Include="Content\octicons\svg\beaker.svg" />
+    <Content Include="Content\octicons\svg\bell.svg" />
+    <Content Include="Content\octicons\svg\bold.svg" />
+    <Content Include="Content\octicons\svg\book.svg" />
+    <Content Include="Content\octicons\svg\bookmark.svg" />
+    <Content Include="Content\octicons\svg\briefcase.svg" />
+    <Content Include="Content\octicons\svg\broadcast.svg" />
+    <Content Include="Content\octicons\svg\browser.svg" />
+    <Content Include="Content\octicons\svg\bug.svg" />
+    <Content Include="Content\octicons\svg\calendar.svg" />
+    <Content Include="Content\octicons\svg\check.svg" />
+    <Content Include="Content\octicons\svg\checklist.svg" />
+    <Content Include="Content\octicons\svg\chevron-down.svg" />
+    <Content Include="Content\octicons\svg\chevron-left.svg" />
+    <Content Include="Content\octicons\svg\chevron-right.svg" />
+    <Content Include="Content\octicons\svg\chevron-up.svg" />
+    <Content Include="Content\octicons\svg\circle-slash.svg" />
+    <Content Include="Content\octicons\svg\circuit-board.svg" />
+    <Content Include="Content\octicons\svg\clippy.svg" />
+    <Content Include="Content\octicons\svg\clock.svg" />
+    <Content Include="Content\octicons\svg\cloud-download.svg" />
+    <Content Include="Content\octicons\svg\cloud-upload.svg" />
+    <Content Include="Content\octicons\svg\code.svg" />
+    <Content Include="Content\octicons\svg\comment-discussion.svg" />
+    <Content Include="Content\octicons\svg\comment.svg" />
+    <Content Include="Content\octicons\svg\credit-card.svg" />
+    <Content Include="Content\octicons\svg\dash.svg" />
+    <Content Include="Content\octicons\svg\dashboard.svg" />
+    <Content Include="Content\octicons\svg\database.svg" />
+    <Content Include="Content\octicons\svg\desktop-download.svg" />
+    <Content Include="Content\octicons\svg\device-camera-video.svg" />
+    <Content Include="Content\octicons\svg\device-camera.svg" />
+    <Content Include="Content\octicons\svg\device-desktop.svg" />
+    <Content Include="Content\octicons\svg\device-mobile.svg" />
+    <Content Include="Content\octicons\svg\diff-added.svg" />
+    <Content Include="Content\octicons\svg\diff-ignored.svg" />
+    <Content Include="Content\octicons\svg\diff-modified.svg" />
+    <Content Include="Content\octicons\svg\diff-removed.svg" />
+    <Content Include="Content\octicons\svg\diff-renamed.svg" />
+    <Content Include="Content\octicons\svg\diff.svg" />
+    <Content Include="Content\octicons\svg\ellipsis.svg" />
+    <Content Include="Content\octicons\svg\eye.svg" />
+    <Content Include="Content\octicons\svg\file-binary.svg" />
+    <Content Include="Content\octicons\svg\file-code.svg" />
+    <Content Include="Content\octicons\svg\file-directory.svg" />
+    <Content Include="Content\octicons\svg\file-media.svg" />
+    <Content Include="Content\octicons\svg\file-pdf.svg" />
+    <Content Include="Content\octicons\svg\file-submodule.svg" />
+    <Content Include="Content\octicons\svg\file-symlink-directory.svg" />
+    <Content Include="Content\octicons\svg\file-symlink-file.svg" />
+    <Content Include="Content\octicons\svg\file-zip.svg" />
+    <Content Include="Content\octicons\svg\file.svg" />
+    <Content Include="Content\octicons\svg\flame.svg" />
+    <Content Include="Content\octicons\svg\fold.svg" />
+    <Content Include="Content\octicons\svg\gear.svg" />
+    <Content Include="Content\octicons\svg\gift.svg" />
+    <Content Include="Content\octicons\svg\gist-secret.svg" />
+    <Content Include="Content\octicons\svg\gist.svg" />
+    <Content Include="Content\octicons\svg\git-branch.svg" />
+    <Content Include="Content\octicons\svg\git-commit.svg" />
+    <Content Include="Content\octicons\svg\git-compare.svg" />
+    <Content Include="Content\octicons\svg\git-merge.svg" />
+    <Content Include="Content\octicons\svg\git-pull-request.svg" />
+    <Content Include="Content\octicons\svg\globe.svg" />
+    <Content Include="Content\octicons\svg\grabber.svg" />
+    <Content Include="Content\octicons\svg\graph.svg" />
+    <Content Include="Content\octicons\svg\heart.svg" />
+    <Content Include="Content\octicons\svg\history.svg" />
+    <Content Include="Content\octicons\svg\home.svg" />
+    <Content Include="Content\octicons\svg\horizontal-rule.svg" />
+    <Content Include="Content\octicons\svg\hubot.svg" />
+    <Content Include="Content\octicons\svg\inbox.svg" />
+    <Content Include="Content\octicons\svg\info.svg" />
+    <Content Include="Content\octicons\svg\issue-closed.svg" />
+    <Content Include="Content\octicons\svg\issue-opened.svg" />
+    <Content Include="Content\octicons\svg\issue-reopened.svg" />
+    <Content Include="Content\octicons\svg\italic.svg" />
+    <Content Include="Content\octicons\svg\jersey.svg" />
+    <Content Include="Content\octicons\svg\kebab-horizontal.svg" />
+    <Content Include="Content\octicons\svg\kebab-vertical.svg" />
+    <Content Include="Content\octicons\svg\key.svg" />
+    <Content Include="Content\octicons\svg\keyboard.svg" />
+    <Content Include="Content\octicons\svg\law.svg" />
+    <Content Include="Content\octicons\svg\light-bulb.svg" />
+    <Content Include="Content\octicons\svg\link-external.svg" />
+    <Content Include="Content\octicons\svg\link.svg" />
+    <Content Include="Content\octicons\svg\list-ordered.svg" />
+    <Content Include="Content\octicons\svg\list-unordered.svg" />
+    <Content Include="Content\octicons\svg\location.svg" />
+    <Content Include="Content\octicons\svg\lock.svg" />
+    <Content Include="Content\octicons\svg\logo-gist.svg" />
+    <Content Include="Content\octicons\svg\logo-github.svg" />
+    <Content Include="Content\octicons\svg\mail-read.svg" />
+    <Content Include="Content\octicons\svg\mail.svg" />
+    <Content Include="Content\octicons\svg\mark-github.svg" />
+    <Content Include="Content\octicons\svg\markdown.svg" />
+    <Content Include="Content\octicons\svg\megaphone.svg" />
+    <Content Include="Content\octicons\svg\mention.svg" />
+    <Content Include="Content\octicons\svg\milestone.svg" />
+    <Content Include="Content\octicons\svg\mirror.svg" />
+    <Content Include="Content\octicons\svg\mortar-board.svg" />
+    <Content Include="Content\octicons\svg\mute.svg" />
+    <Content Include="Content\octicons\svg\no-newline.svg" />
+    <Content Include="Content\octicons\svg\note.svg" />
+    <Content Include="Content\octicons\svg\octoface.svg" />
+    <Content Include="Content\octicons\svg\organization.svg" />
+    <Content Include="Content\octicons\svg\package.svg" />
+    <Content Include="Content\octicons\svg\paintcan.svg" />
+    <Content Include="Content\octicons\svg\pencil.svg" />
+    <Content Include="Content\octicons\svg\person.svg" />
+    <Content Include="Content\octicons\svg\pin.svg" />
+    <Content Include="Content\octicons\svg\plug.svg" />
+    <Content Include="Content\octicons\svg\plus-small.svg" />
+    <Content Include="Content\octicons\svg\plus.svg" />
+    <Content Include="Content\octicons\svg\primitive-dot.svg" />
+    <Content Include="Content\octicons\svg\primitive-square.svg" />
+    <Content Include="Content\octicons\svg\project.svg" />
+    <Content Include="Content\octicons\svg\pulse.svg" />
+    <Content Include="Content\octicons\svg\question.svg" />
+    <Content Include="Content\octicons\svg\quote.svg" />
+    <Content Include="Content\octicons\svg\radio-tower.svg" />
+    <Content Include="Content\octicons\svg\reply.svg" />
+    <Content Include="Content\octicons\svg\repo-clone.svg" />
+    <Content Include="Content\octicons\svg\repo-force-push.svg" />
+    <Content Include="Content\octicons\svg\repo-forked.svg" />
+    <Content Include="Content\octicons\svg\repo-pull.svg" />
+    <Content Include="Content\octicons\svg\repo-push.svg" />
+    <Content Include="Content\octicons\svg\repo.svg" />
+    <Content Include="Content\octicons\svg\report.svg" />
+    <Content Include="Content\octicons\svg\rocket.svg" />
+    <Content Include="Content\octicons\svg\rss.svg" />
+    <Content Include="Content\octicons\svg\ruby.svg" />
+    <Content Include="Content\octicons\svg\screen-full.svg" />
+    <Content Include="Content\octicons\svg\screen-normal.svg" />
+    <Content Include="Content\octicons\svg\search.svg" />
+    <Content Include="Content\octicons\svg\server.svg" />
+    <Content Include="Content\octicons\svg\settings.svg" />
+    <Content Include="Content\octicons\svg\shield.svg" />
+    <Content Include="Content\octicons\svg\sign-in.svg" />
+    <Content Include="Content\octicons\svg\sign-out.svg" />
+    <Content Include="Content\octicons\svg\smiley.svg" />
+    <Content Include="Content\octicons\svg\squirrel.svg" />
+    <Content Include="Content\octicons\svg\star.svg" />
+    <Content Include="Content\octicons\svg\stop.svg" />
+    <Content Include="Content\octicons\svg\sync.svg" />
+    <Content Include="Content\octicons\svg\tag.svg" />
+    <Content Include="Content\octicons\svg\tasklist.svg" />
+    <Content Include="Content\octicons\svg\telescope.svg" />
+    <Content Include="Content\octicons\svg\terminal.svg" />
+    <Content Include="Content\octicons\svg\text-size.svg" />
+    <Content Include="Content\octicons\svg\three-bars.svg" />
+    <Content Include="Content\octicons\svg\thumbsdown.svg" />
+    <Content Include="Content\octicons\svg\thumbsup.svg" />
+    <Content Include="Content\octicons\svg\tools.svg" />
+    <Content Include="Content\octicons\svg\trashcan.svg" />
+    <Content Include="Content\octicons\svg\triangle-down.svg" />
+    <Content Include="Content\octicons\svg\triangle-left.svg" />
+    <Content Include="Content\octicons\svg\triangle-right.svg" />
+    <Content Include="Content\octicons\svg\triangle-up.svg" />
+    <Content Include="Content\octicons\svg\unfold.svg" />
+    <Content Include="Content\octicons\svg\unmute.svg" />
+    <Content Include="Content\octicons\svg\unverified.svg" />
+    <Content Include="Content\octicons\svg\verified.svg" />
+    <Content Include="Content\octicons\svg\versions.svg" />
+    <Content Include="Content\octicons\svg\watch.svg" />
+    <Content Include="Content\octicons\svg\x.svg" />
+    <Content Include="Content\octicons\svg\zap.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Celula\EditarCelula.js" />
+    <Content Include="Scripts\Correios\Correios.js" />
+    <Content Include="Scripts\Agencia\DropDownClaims.js" />
+    <Content Include="Scripts\Agencia\EditarAgencia.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Correios\RegisterCorreios.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\index.scss" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="..\packages\MongoRepository.1.6.11\MongoRepository.chm">
+      <Link>Documentation\MongoRepository.chm</Link>
+    </Content>
+    <Content Include="Scripts\i18n\defaults-ar_AR.js" />
+    <Content Include="Scripts\i18n\defaults-ar_AR.min.js" />
+    <Content Include="Scripts\i18n\defaults-bg_BG.js" />
+    <Content Include="Scripts\i18n\defaults-bg_BG.min.js" />
+    <Content Include="Scripts\i18n\defaults-cs_CZ.js" />
+    <Content Include="Scripts\i18n\defaults-cs_CZ.min.js" />
+    <Content Include="Scripts\i18n\defaults-da_DK.js" />
+    <Content Include="Scripts\i18n\defaults-da_DK.min.js" />
+    <Content Include="Scripts\i18n\defaults-de_DE.js" />
+    <Content Include="Scripts\i18n\defaults-de_DE.min.js" />
+    <Content Include="Scripts\i18n\defaults-en_US.js" />
+    <Content Include="Scripts\i18n\defaults-en_US.min.js" />
+    <Content Include="Scripts\i18n\defaults-es_CL.js" />
+    <Content Include="Scripts\i18n\defaults-es_CL.min.js" />
+    <Content Include="Scripts\i18n\defaults-es_ES.js" />
+    <Content Include="Scripts\i18n\defaults-es_ES.min.js" />
+    <Content Include="Scripts\i18n\defaults-et_EE.js" />
+    <Content Include="Scripts\i18n\defaults-et_EE.min.js" />
+    <Content Include="Scripts\i18n\defaults-eu.js" />
+    <Content Include="Scripts\i18n\defaults-eu.min.js" />
+    <Content Include="Scripts\i18n\defaults-fa_IR.js" />
+    <Content Include="Scripts\i18n\defaults-fa_IR.min.js" />
+    <Content Include="Scripts\i18n\defaults-fi_FI.js" />
+    <Content Include="Scripts\i18n\defaults-fi_FI.min.js" />
+    <Content Include="Scripts\i18n\defaults-fr_FR.js" />
+    <Content Include="Scripts\i18n\defaults-fr_FR.min.js" />
+    <Content Include="Scripts\i18n\defaults-hr_HR.js" />
+    <Content Include="Scripts\i18n\defaults-hr_HR.min.js" />
+    <Content Include="Scripts\i18n\defaults-hu_HU.js" />
+    <Content Include="Scripts\i18n\defaults-hu_HU.min.js" />
+    <Content Include="Scripts\i18n\defaults-id_ID.js" />
+    <Content Include="Scripts\i18n\defaults-id_ID.min.js" />
+    <Content Include="Scripts\i18n\defaults-it_IT.js" />
+    <Content Include="Scripts\i18n\defaults-it_IT.min.js" />
+    <Content Include="Scripts\i18n\defaults-ja_JP.js" />
+    <Content Include="Scripts\i18n\defaults-ja_JP.min.js" />
+    <Content Include="Scripts\i18n\defaults-kh_KM.js" />
+    <Content Include="Scripts\i18n\defaults-kh_KM.min.js" />
+    <Content Include="Scripts\i18n\defaults-ko_KR.js" />
+    <Content Include="Scripts\i18n\defaults-ko_KR.min.js" />
+    <Content Include="Scripts\i18n\defaults-lt_LT.js" />
+    <Content Include="Scripts\i18n\defaults-lt_LT.min.js" />
+    <Content Include="Scripts\i18n\defaults-nb_NO.js" />
+    <Content Include="Scripts\i18n\defaults-nb_NO.min.js" />
+    <Content Include="Scripts\i18n\defaults-nl_NL.js" />
+    <Content Include="Scripts\i18n\defaults-nl_NL.min.js" />
+    <Content Include="Scripts\i18n\defaults-pl_PL.js" />
+    <Content Include="Scripts\i18n\defaults-pl_PL.min.js" />
+    <Content Include="Scripts\i18n\defaults-pt_BR.js" />
+    <Content Include="Scripts\i18n\defaults-pt_BR.min.js" />
+    <Content Include="Scripts\i18n\defaults-pt_PT.js" />
+    <Content Include="Scripts\i18n\defaults-pt_PT.min.js" />
+    <Content Include="Scripts\i18n\defaults-ro_RO.js" />
+    <Content Include="Scripts\i18n\defaults-ro_RO.min.js" />
+    <Content Include="Scripts\i18n\defaults-ru_RU.js" />
+    <Content Include="Scripts\i18n\defaults-ru_RU.min.js" />
+    <Content Include="Scripts\i18n\defaults-sk_SK.js" />
+    <Content Include="Scripts\i18n\defaults-sk_SK.min.js" />
+    <Content Include="Scripts\i18n\defaults-sl_SI.js" />
+    <Content Include="Scripts\i18n\defaults-sl_SI.min.js" />
+    <Content Include="Scripts\i18n\defaults-sv_SE.js" />
+    <Content Include="Scripts\i18n\defaults-sv_SE.min.js" />
+    <Content Include="Scripts\i18n\defaults-tr_TR.js" />
+    <Content Include="Scripts\i18n\defaults-tr_TR.min.js" />
+    <Content Include="Scripts\i18n\defaults-ua_UA.js" />
+    <Content Include="Scripts\i18n\defaults-ua_UA.min.js" />
+    <Content Include="Scripts\i18n\defaults-vi_VN.js" />
+    <Content Include="Scripts\i18n\defaults-vi_VN.min.js" />
+    <Content Include="Scripts\i18n\defaults-zh_CN.js" />
+    <Content Include="Scripts\i18n\defaults-zh_CN.min.js" />
+    <Content Include="Scripts\i18n\defaults-zh_TW.js" />
+    <Content Include="Scripts\i18n\defaults-zh_TW.min.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\bootstrap-select.js.map" />
+    <Content Include="Content\bootstrap-select.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Mascaras\MascarasCadastro.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Shared\_ErrorSummary.cshtml" />
+    <Content Include="Views\Shared\403.cshtml" />
+    <Content Include="Views\Shared\_SubMenuLogado.cshtml" />
+    <Content Include="Views\Shared\_MenuUsuario.cshtml" />
+    <Content Include="Views\Shared\404.cshtml" />
+    <Content Include="Views\Agencia\BloquearConta.cshtml" />
+    <Content Include="Views\Shared\_SuccessSummary.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Agencia\_buscarEnderecos.cshtml" />
+    <Content Include="Views\Agencia\_DadosEndereco.cshtml" />
+    <Content Include="Views\AgenciaUsuario\ListarUsuarios.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_BuscarUsuarios.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_AdicionarAgenciaUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_Permissoes.cshtml" />
+    <Content Include="Views\Shared\_MenuPermissaoAdm.cshtml" />
+    <Content Include="Views\Agencia\EditarAgencia.cshtml" />
+    <Content Include="Views\Agencia\_DeletarEnderecos.cshtml" />
+    <Content Include="Views\Agencia\ListarEnderecos.cshtml" />
+    <Content Include="Views\Agencia\_Enderecos.cshtml" />
+    <Content Include="Views\Home\_Apresentacao.cshtml" />
+    <Content Include="Views\Agencia\_AtualizarEndereco.cshtml" />
+    <Content Include="Views\Agencia\_AdicionarEndereco.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_AgenciaUsuario.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\AgenciaUsuario\_EditarSenhaAgenciaUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_AtualizarAgenciaUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_EditarAgenciaUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\AtualizarUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_AlterarSenha.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_DeletarUsuario.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_DadosAgenciaUsuario.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Home\Lockout.cshtml" />
+    <Content Include="Views\Eventos\_DadosUsuarioEvents.cshtml" />
+    <Content Include="Views\Eventos\_ListarUsuarioEvents.cshtml" />
+    <Content Include="Views\AgenciaUsuario\ListarUsuariosInativos.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_BuscarUsuariosInativos.cshtml" />
+    <Content Include="Views\AgenciaUsuario\_RestaurarUsuarios.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\Erro.cshtml" />
+    <Content Include="Views\Eventos\BuscarUsuariosEvento.cshtml" />
+    <Content Include="Views\Celula\ListarCelulas.cshtml" />
+    <Content Include="Views\Celula\_AdicionarCelula.cshtml" />
+    <Content Include="Views\Celula\_Celulas.cshtml" />
+    <Content Include="Views\Celula\_ExcluirCelula.cshtml" />
+    <Content Include="Views\Celula\_DadosCelula.cshtml" />
+    <Content Include="Views\Celula\_BuscarCelulaInativos.cshtml" />
+    <Content Include="Views\Celula\_RestaurarCelula.cshtml" />
+    <Content Include="Views\RegistroAcessoAgenciaUsuario\ListarUsuarios.cshtml" />
+    <Content Include="Views\RegistroAcessoAgenciaUsuario\_BuscarRegistroUsuarios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Systrade.Aplicacao\Systrade.Agecia.Aplicacao.csproj">
+      <Project>{C7A3A389-A2F5-4761-9235-B2F4A65D04C9}</Project>
+      <Name>Systrade.Agecia.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Cadastro.Identity\Systrade.Cadastro.Identity.csproj">
+      <Project>{0321512A-9F56-49A5-BD68-0E9E70906C0E}</Project>
+      <Name>Systrade.Cadastro.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Cadastro.Infra.Logging\Systrade.Cadastro.Infra.Logging.csproj">
+      <Project>{0DE8BD1D-E74D-4FBE-A38E-BC5F71C3ACE4}</Project>
+      <Name>Systrade.Cadastro.Infra.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Clientes.Applications\Systrade.Clientes.Applications.csproj">
+      <Project>{B1CCEA0D-B715-4D86-AD36-E8759D09D4D7}</Project>
+      <Name>Systrade.Clientes.Applications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Clientes.CrossCutting\Systrade.Clientes.CrossCutting.Ioc.csproj">
+      <Project>{af151464-c6ab-4127-a530-272a1ebfab31}</Project>
+      <Name>Systrade.Clientes.CrossCutting.Ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Clientes.Domain\Systrade.Clientes.Domain.csproj">
+      <Project>{55C566E8-1288-4868-811E-63B860CBC644}</Project>
+      <Name>Systrade.Clientes.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Core\Systrade.Core.Domain.csproj">
+      <Project>{5FC535A3-92CA-4C9C-8AF3-F790BBA11D37}</Project>
+      <Name>Systrade.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.CrossCutting.Filters\Systrade.CrossCutting.Filters.csproj">
+      <Project>{99DC1D76-5BC1-4B8B-97EA-69DD110DB248}</Project>
+      <Name>Systrade.CrossCutting.Filters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.CrossCutting.Ioc\Systrade.CrossCutting.Ioc.csproj">
+      <Project>{50C700FC-D8DE-46EC-8411-D3A23B7D9DB7}</Project>
+      <Name>Systrade.CrossCutting.Ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Dominio\Systrade.Agencia.Dominio.csproj">
+      <Project>{FBAAF729-7EA8-4C3C-91F2-6A623303D222}</Project>
+      <Name>Systrade.Agencia.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Events.Dominio\Systrade.Events.Dominio.csproj">
+      <Project>{123ac28b-ed96-41bd-8e44-ca93afd643c3}</Project>
+      <Name>Systrade.Events.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systyrade.Eventos.Aplicacao\Systyrade.Eventos.Aplicacao.csproj">
+      <Project>{A4EA0601-7BAD-4EEB-B4BF-766C4DF17892}</Project>
+      <Name>Systyrade.Eventos.Aplicacao</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63408</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63408/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

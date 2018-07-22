@@ -1,0 +1,17 @@
+﻿@model Systrade.Aplicacao.ViewModel.EnderecoViewModel
+
+@using (Html.BeginForm("ListarEnderecos", "Agencia"))
+{
+    <div class="row _buscarendereco">
+        <div class="col-md-10">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" title="Buscar"><i class="fa fa-search"></i></button>
+                </span>
+                @Html.EditorFor(model => model.Buscar, new { htmlAttributes = new { @class = "form-control", @placeholder = "Buscar.." } })
+            </div>
+        </div>
+    </div>
+}
+
+

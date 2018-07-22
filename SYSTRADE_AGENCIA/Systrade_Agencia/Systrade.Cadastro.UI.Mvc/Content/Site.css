@@ -1,0 +1,165 @@
+﻿* { 
+}
+
+body {
+    background: #eee;
+}
+
+
+footer {
+    background-color: black;
+    display: block;
+    min-height: 100px;
+    width: 100%;
+    color: white;
+    margin-top: auto;
+    bottom: 0px;
+}
+
+
+Set padding to keep content from hitting the edges .body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+    input::-moz-placeholder {
+        font-size: 14px;
+    }
+
+section {
+    width:99%;
+    margin-top:10px;
+    margin-left:10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    background: white;
+    height: 100%;
+    min-height: 160vh;
+    padding: 10px;
+}
+
+main {
+    height:100%;
+}
+
+nav a {
+    font-family: Times, serif;
+    font-weight: bold;
+    font: 100 bold;
+    font-size: 14px;
+    color: white;
+}
+
+nav .dropdown-menu {
+    border: 2px solid white;
+    padding: 2px;
+}
+
+nav button {
+    color: #808080;
+    font-family: Times, serif;
+    text-align: center;
+}
+
+nav .dropdown-menu ._item {
+    padding-left: 15px;
+    width: 152px;
+    color: white;
+}
+
+nav li .nav-link:hover {
+    background: #111111;
+}
+
+nav .dropdown-toggle:hover {
+    background: #FF0040;
+}
+
+nav .menuadm a:hover {
+    background: #FF0040;
+}
+
+nav .dropdown-menu .menuadm {
+    margin-left: 2px;
+    padding: 6px;
+}
+
+    nav .dropdown-menu .menuadm a {
+        padding-left: 15px;
+        width: 152px;
+        color: white;
+    }
+
+
+h2 {
+    color: #808080;
+    font-family: Times, serif;
+    text-align: center;
+}
+
+.required:after {
+    margin-left: 2px;
+    content: "*";
+    color: #710000;
+}
+
+form .form-group {
+    padding: 2px;
+}
+
+form .text-muted {
+    margin-left: 10px;
+}
+
+form .form-control {
+    padding: 3px;
+    border: 1px solid #d3d3d3;
+}
+
+form label {
+    font-size: 14px;
+    font-family: Times, serif;
+}
+
+form h5 {
+    color: black;
+    font-family: Times, serif;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+form .form-row {
+    padding-bottom: 50px;
+}
+
+form h6 {
+    padding: 16px;
+    font-family: Times, serif;
+}
+
+table {
+    width: 100%;
+}
+
+thead th {
+    text-align: left;
+    padding: 8px;
+    color: black;
+}
+
+table td {
+    text-align: left;
+    padding: 6px;
+    color: #808080;
+}

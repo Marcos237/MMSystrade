@@ -1,0 +1,32 @@
+﻿@model Systrade.Aplicacao.ViewModel.EditarAgenciaUsuarioViewModel
+
+<div class="modal-header">
+    <h4 class="modal-title">Deseja realmente excluir esse usuário?</h4>
+    <button type="button" class="close" data-dismiss="modal" title="Fechar">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+</div>
+
+<div class="form-group-sm">
+    @Html.Partial("_ErrorSummary")
+</div>
+
+@using (Html.BeginForm("DeletarUsuario", "AgenciaUsuario", FormMethod.Post))
+{
+
+    <div class="modal-body">
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.Partial("_DadosAgenciaUsuario")
+
+            @Html.HiddenFor(model => model.UsuarioId)
+
+            <div class="modal-footer">
+                <input type="submit" value="Excluir" class="btn btn-success" title="Excluir" />
+                <input type="button" class="btn btn-danger" data-dismiss="modal" value="Fechar" title="Fechar" />
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,9 @@
+﻿@using Systrade.Cadastro.UI.Mvc.PermissionHelper
+@{
+
+    if (this.IfClaim("Systrade", "A"))
+    {
+        @Html.Partial("_MenuPermissaoAdm")
+
+    }
+}

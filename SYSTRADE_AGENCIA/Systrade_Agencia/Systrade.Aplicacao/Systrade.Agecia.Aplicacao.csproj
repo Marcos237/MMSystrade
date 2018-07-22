@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7A3A389-A2F5-4761-9235-B2F4A65D04C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Systrade.Aplicacao</RootNamespace>
+    <AssemblyName>Systrade.Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\AdicionarEnderecoAdapter.cs" />
+    <Compile Include="Adapters\AgenciaAdapter.cs" />
+    <Compile Include="Adapters\RegisterAdapter.cs" />
+    <Compile Include="Adapters\AgenciaUsuarioAdapter.cs" />
+    <Compile Include="Adapters\EditarAgenciaAdapter.cs" />
+    <Compile Include="Adapters\EditarAgenciaUsuarioAdapter.cs" />
+    <Compile Include="Adapters\EditarEnderecoAdapter.cs" />
+    <Compile Include="Adapters\EditarUsuarioAdapter.cs" />
+    <Compile Include="Adapters\EnderecoAdapter.cs" />
+    <Compile Include="AutoMaper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMaper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Interface\IAgenciaAppService.cs" />
+    <Compile Include="Interface\IRegistroAppService.cs" />
+    <Compile Include="Services\AgenciaAppservice.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AgenciaUsuarioAppServices.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Services\RegistroAppService.cs" />
+    <Compile Include="ViewModel\AgenciaUsuarioViewModel.cs" />
+    <Compile Include="ViewModel\ClaimsViewModel.cs" />
+    <Compile Include="ViewModel\EditarAgenciaUsuarioViewModel.cs" />
+    <Compile Include="ViewModel\AgenciaViewModel.cs" />
+    <Compile Include="ViewModel\EnderecoViewModel.cs" />
+    <Compile Include="ViewModel\PagedViewModel.cs" />
+    <Compile Include="ViewModel\SenhaViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="ViewModel\UsuarioViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Systrade.Cadastro.Identity\Systrade.Cadastro.Identity.csproj">
+      <Project>{0321512A-9F56-49A5-BD68-0E9E70906C0E}</Project>
+      <Name>Systrade.Cadastro.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Cadastro.Infra.Logging\Systrade.Cadastro.Infra.Logging.csproj">
+      <Project>{0DE8BD1D-E74D-4FBE-A38E-BC5F71C3ACE4}</Project>
+      <Name>Systrade.Cadastro.Infra.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Core\Systrade.Core.Domain.csproj">
+      <Project>{5FC535A3-92CA-4C9C-8AF3-F790BBA11D37}</Project>
+      <Name>Systrade.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Dominio\Systrade.Agencia.Dominio.csproj">
+      <Project>{FBAAF729-7EA8-4C3C-91F2-6A623303D222}</Project>
+      <Name>Systrade.Agencia.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systrade.Infra.Data\Systrade.Agencia.Infra.Data.csproj">
+      <Project>{B9ABEB5C-EE49-4899-8A8F-30BAE341C296}</Project>
+      <Name>Systrade.Agencia.Infra.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,125 @@
+﻿@model Systrade.Aplicacao.ViewModel.EditarAgenciaUsuarioViewModel
+@using Systrade.Aplicacao.ViewModel
+
+
+<div class="form-group">
+    <div class="col-md-8">
+        @Html.Partial("_Permissoes", new ClaimsViewModel())
+        @Html.HiddenFor(model => model.ClaimValue, new { id = "editarpermissao" })
+        @Html.ValidationMessageFor(model => model.ClaimValue, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2 required" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Nome, new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                placeholder = "Nome",
+                autofocus = true,
+                id = "txteditarnomeusuarioagencia",
+                maxlength = "150"
+            }
+        })
+        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "control-label col-md-2 required" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Sobrenome, new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                placeholder = "Sobrenome",
+                autofocus = true,
+                id = "txteditarsobrenomeusuarioagencia",
+                maxlength = "150"
+            }
+        })
+        @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "col-sm-2 col-form-label required" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Celular, new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                placeholder = "Celular",
+                autofocus = true,
+                id = "txteditarusuarioagenciacelular",
+                maxlength = "14"
+            }
+        })
+        @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.TelefoneFixo, htmlAttributes: new { @class = "col-sm-12 col-form-label" })
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.TelefoneFixo, new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                placeholder = "Telefone",
+                autofocus = true,
+                id = "txteditarusuarioagenciatelefonefixo",
+                maxlength = "13"
+            }
+        })
+        @Html.ValidationMessageFor(model => model.TelefoneFixo, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 required" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Email, new
+    {
+        htmlAttributes = new
+        {
+            @class = "form-control",
+            placeholder = "Email",
+            autofocus = true,
+            id = "txteditarusuarioagenciaemail",
+            maxlength = "150"
+        }
+    })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "col-sm-12 col-form-label" })
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.Descricao, new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                placeholder = "Descrição",
+                autofocus = true,
+                id = "txteditarusuarioagenciadescricao",
+                maxlength = "150"
+            }
+        })
+        @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+    </div>
+
+</div>
+
+<script src="~/Scripts/Mascaras/MascarasCadastro.js"></script>
+
+

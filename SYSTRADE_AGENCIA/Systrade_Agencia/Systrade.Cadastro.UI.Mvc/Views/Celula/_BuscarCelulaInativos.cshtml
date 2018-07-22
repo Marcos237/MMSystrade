@@ -1,0 +1,22 @@
+﻿@model Systrade.Clientes.Applications.ViewModel.CelulaViewModel
+
+@using (Html.BeginForm("ListarCelulas", "Celula"))
+{
+    @Html.AntiForgeryToken()
+
+    <br />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" title="Buscar"><i class="fa fa-search"></i></button>
+                    </span>
+                    @Html.EditorFor(model => model.Buscar, new { htmlAttributes = new { @class = "form-control", @placeholder = "Buscar.." } })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

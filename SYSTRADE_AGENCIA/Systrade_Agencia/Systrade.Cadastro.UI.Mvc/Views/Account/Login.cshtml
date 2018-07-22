@@ -1,0 +1,80 @@
+﻿@using Systrade.Cadastro.Identity.Model
+@model Systrade.Cadastro.Identity.Model.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h2>Login</h2>
+        <hr />
+        <div class="form-horizontal offset-md-4 col-md-4 _login">
+            <div class="offset-md-2">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Login, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control",
+                                   placeholder = "Login...",
+                                   autofocus = true,
+                                   id = "txtlogin",
+                                   maxlength = "150"
+                               }
+                           })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Password, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control",
+                                   placeholder = "Senha...",
+                                   autofocus = true,
+                                   id = "txtloginsenha",
+                                   maxlength = "150"
+                               }
+                           })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-check-inline">
+                    @Html.EditorFor(model => model.RememberMe, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "form-check-label" })
+                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" />
+                    </div>
+                </div>
+
+                <div class="">
+                    <p>
+                        @Html.ActionLink("Registrar uma nova conta?", "Register")
+                    </p>
+                    <p>
+                        @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

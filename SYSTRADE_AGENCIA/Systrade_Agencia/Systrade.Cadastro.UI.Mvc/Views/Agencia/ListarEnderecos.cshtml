@@ -1,0 +1,165 @@
+﻿@model IEnumerable<Systrade.Aplicacao.ViewModel.EnderecoViewModel>
+@using Systrade.Aplicacao.ViewModel
+@{
+    ViewBag.Title = "ListarEnderecos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section>
+
+    @Html.Partial("_buscarenderecos", new EnderecoViewModel())
+
+    <hr />
+    @Html.Partial("_ErrorSummary")
+    @Html.Partial("_SuccessSummary")
+
+
+    <div class="container-fluid">
+        <div class="panel panel-primary" style="overflow-x:auto;">
+
+            @if (Model.Any())
+            {
+                <table class="table table-sm table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descricao)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cep)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Logradouro)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Complemento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Numero)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cidade)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cep)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Logradouro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Complemento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Numero)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+
+                            <td>
+                                <a href="@Url.Action("AtualizarEndereco", "Agencia", new { id = item.EnderecoId })" data-modal="" class="btn btn-primary">
+                                    <span title="Editar" class="fa fa-pencil"></span>
+                                </a>
+                                <a href="@Url.Action("DeletarEndereco", "Agencia", new { id = item.EnderecoId })" data-modal="" class="btn btn-danger">
+                                    <span title="Deletar" class="fa fa-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            Nenhum Endereço Cadastrado.
+                        </th>
+                    </tr>
+                </table>
+            }
+        </div>
+
+        <div>
+            <ul class="pagination">
+
+                <li class="page-item">
+                    @{
+                        if (ViewBag.PageNumber > 1)
+                        {
+                            <a href="@Url.Action("ListarEnderecos", "Agencia", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber - 1 })"
+                               class="page-link">«</a>
+                        }
+                        else
+                        {
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        }
+                    }
+                </li>
+
+                @{
+                    var atualPageNumber = ViewBag.PageNumber;
+                    for (var i = 1; i <= ViewBag.TotalCount; i++)
+                    {
+                        <li @(atualPageNumber == i ? "class=active" : "") class="page-item">
+                            <a href="@Url.Action("ListarEnderecos", "Agencia", new { buscar = ViewBag.SearchData, pageNumber = i })" class="page-link">@i</a>
+                        </li>
+                    }
+                }
+
+                <li class="page-item">
+
+                    @if (ViewBag.PageNumber < ViewBag.TotalCount)
+                    {
+                        <a href="@Url.Action("ListarEnderecos", "Agencia", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber + 1 })"
+                           class="page-link">»</a>
+                    }
+                    else
+                    {
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    }
+
+                </li>
+            </ul>
+        </div>
+
+        <h6 class="_quantidadepaginas"> Total de registros : @ViewBag.Count</h6>
+
+        <div class="input-group">
+            @Html.ActionLink("Novo", "AdicionarEndereco", "Agencia", new { @class = "btn btn-primary", data_modal = "", @id = "adicionarenderecos" })
+
+
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

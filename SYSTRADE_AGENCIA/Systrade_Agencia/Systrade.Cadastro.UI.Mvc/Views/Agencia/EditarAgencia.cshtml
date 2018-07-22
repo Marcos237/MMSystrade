@@ -1,0 +1,87 @@
+﻿@model Systrade.Aplicacao.ViewModel.AgenciaViewModel
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section>
+        <div class="form-horizontal">
+            <h2 class="text-center">Editar dados</h2>
+            <hr />
+
+            @Html.Partial("_ErrorSummary")
+            @Html.Partial("_SuccessSummary")
+
+
+            @Html.HiddenFor(model => model.AgenciaId)
+            @Html.HiddenFor(model => model.CNPJ)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeFantasia, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.NomeFantasia, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        placeholder = "Nome fantasia",
+                        autofocus = true,
+                        id = "txteditarnomeagencia",
+                        maxlength = "150"
+                    }
+                })
+                    @Html.ValidationMessageFor(model => model.NomeFantasia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RazaoSocial, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.RazaoSocial, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        placeholder = "Razão social",
+                        autofocus = true,
+                        id = "txteditarrazaosocialagencia",
+                        maxlength = "150"
+                    }
+                })
+                    @Html.ValidationMessageFor(model => model.RazaoSocial, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TelefoneFixo, htmlAttributes: new { @class = "col-sm-12 col-form-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.TelefoneFixo, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        placeholder = "Telefone da agência",
+                        autofocus = true,
+                        id = "txteditartelefoneagencia",
+                        maxlength = "13"
+                    }
+                })
+                    @Html.ValidationMessageFor(model => model.TelefoneFixo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<script src="~/Scripts/Mascaras/MascarasCadastro.js"></script>

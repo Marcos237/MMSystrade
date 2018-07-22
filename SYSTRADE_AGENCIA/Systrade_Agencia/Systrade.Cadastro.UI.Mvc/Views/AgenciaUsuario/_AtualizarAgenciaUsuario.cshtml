@@ -1,0 +1,35 @@
+﻿@model Systrade.Aplicacao.ViewModel.EditarAgenciaUsuarioViewModel
+
+
+<div class="modal-header">
+    <h4 class="modal-title">Atualizar Usuário</h4>
+    <button type="button" class="close" data-dismiss="modal" title="Fechar">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+</div>
+
+<div class="form-group-sm">
+    @Html.Partial("_ErrorSummary")
+</div>
+
+<div class="modal-body">
+    <div class="form-horizontal">
+
+        @using (Html.BeginForm("AtualizarAgenciaUsuario", "AgenciaUsuario"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.AgenciaId)
+            @Html.HiddenFor(model => model.UsuarioId)
+            @Html.HiddenFor(model => model.CPF)
+
+            @Html.Partial("_EditarAgenciaUsuario")
+
+            <div class="modal-footer">
+                <input type="submit" value="Atualizar" class="btn btn-success" title="Atualizar" id="btnatualizaragenciausuario" />
+                <input type="button" class="btn btn-danger" data-dismiss="modal" value="Fechar" title="Fechar" />
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Scripts/Agencia/DropDownClaims.js"></script>

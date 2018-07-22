@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Systrade.Clientes.Applications.ViewModel.CelulaViewModel>
+@using Systrade.Clientes.Applications.ViewModel
+
+@{
+    ViewBag.Title = "ListarCelulas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+
+    <div class="form-group-sm">
+        @Html.Partial("_ErrorSummary")
+        @Html.Partial("_SuccessSummary")
+    </div>
+
+    <h6 class="text-center alert-dark" id="celulatexto">Editar Células</h6>
+
+    @Html.Partial("_AdicionarCelula", new CelulaViewModel())
+
+    <hr />
+
+
+    <h6 class="text-center alert-dark" id="celulatexto">Células Inativas</h6>
+
+    @Html.Partial("_BuscarCelulaInativos", new CelulaViewModel())
+
+    <hr />
+
+    <div class="container-fluid">
+        <div class="panel panel-primary" style="overflow-x:auto;">
+
+
+            @if (Model.Any())
+            {
+                <table class="table table-sm table-striped inline">
+
+                    <thead class="thead bg-primary" id="tableinativos">
+                        <tr>
+                            <th class="col-6">
+                                @Html.DisplayNameFor(model => model.NomeCelula)
+                            </th>
+
+                            <th class="col-6">
+                                @Html.DisplayNameFor(model => model.DataCadastro)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeCelula)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataCadastro)
+                            </td>
+
+                            <td class="inline">
+                                <a href="@Url.Action("RestaurarCelulas", "Celula", new {id = item.CelulaId})" data-modal="" class="btn btn-danger"
+                                   title="Restaurar célula">
+                                    <span title="Restaurar" class="fa fa-mail-reply"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            Nenhum Usuario Cadastrado.
+                        </th>
+                    </tr>
+                </table>
+            }
+        </div>
+
+        <ul class="pagination">
+
+            <li class="page-item">
+                @{
+                    if (ViewBag.PageNumber > 1)
+                    {
+                        <a href="@Url.Action("ListarCelulas", "Celula", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber - 1 })"
+                           class="page-link">«</a>
+                    }
+                    else
+                    {
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    }
+                }
+            </li>
+
+            @{
+                var atualPageNumber = ViewBag.PageNumber;
+                for (var i = 1; i <= ViewBag.TotalCount; i++)
+                {
+                    <li @(atualPageNumber == i ? "class=active" : "")>
+                        <a href="@Url.Action("ListarCelulas", "Celula", new {buscar = ViewBag.SearchData, pageNumber = i})" class="page-link">@i</a>
+                    </li>
+                }
+            }
+
+            <li>
+
+                @if (ViewBag.PageNumber < ViewBag.TotalCount)
+                {
+                    <a href="@Url.Action("ListarCelulas ", "Celula", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber + 1 })"
+                       class="page-link">»</a>
+                }
+                else
+                {
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                }
+
+            </li>
+        </ul>
+
+        <h6 class="_quantidadepaginas"> Total de registros : @ViewBag.Count</h6>
+    </div>
+
+
+</section>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

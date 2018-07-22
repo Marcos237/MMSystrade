@@ -1,0 +1,51 @@
+﻿@model Systrade.Clientes.Applications.ViewModel.CelulaViewModel
+@using Systrade.Clientes.Applications.ViewModel
+
+
+
+@using (Html.BeginForm("AdicionarCelula", "Celula", new { @class = "form-inline _clientes" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.Hidden("AgenciaId", (Guid?)ViewBag.AgenciaId)
+    @Html.Hidden("CelulaId", (Guid?)ViewBag.CelulaId)
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.NomeCelula, htmlAttributes: new { @class = "col-sm-12 col-form-label required" })
+
+        <div class="col-md-8">
+            @Html.EditorFor(model => model.NomeCelula, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        placeholder = "Nome da Célula",
+                        autofocus = true,
+                        id = "txtcelulanomecelula",
+                        maxlength = "150"
+                    }
+                })
+            @Html.ValidationMessageFor(model => model.NomeCelula, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    @Html.Partial("_Celulas", new CelulaViewModel())
+
+    <div class="btn-group" id="_btncelulas">
+        <div class="col-xl-12 col-md-4">
+            <input type="submit" value="Salvar" class="btn btn-primary _salvar" id="btnsalvarcelula" title="Salvar" />
+
+                <button type="submit" id="btnalterarcelula" class="btn btn-success" name="btnAlterarCelula" title="Alterar célula"
+
+                        formaction='@Url.Action("AlterarCelula", "Celula", new {CelulaId = ViewBag.CelulaId })'>
+                    Alterar
+                </button>
+
+            <input type="button" value="Deletar" class="btn btn-danger _deletar" id="btndeletarcelula" title="Deletar" data-modal="" />
+        </div>
+    </div>
+}
+<script src="~/Scripts/Celula/EditarCelula.js"></script>

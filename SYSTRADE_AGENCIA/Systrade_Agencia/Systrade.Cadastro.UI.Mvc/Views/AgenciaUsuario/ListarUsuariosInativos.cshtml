@@ -1,0 +1,161 @@
+﻿@model IEnumerable<Systrade.Aplicacao.ViewModel.AgenciaUsuarioViewModel>
+    @using Systrade.Aplicacao.ViewModel
+
+@{
+    ViewBag.Title = "Usuários-Inativos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+
+    @Html.Partial("_BuscarUsuariosInativos", new AgenciaUsuarioViewModel())
+    <hr />
+
+    @Html.Partial("_SuccessSummary")
+
+
+
+    <div class="container-fluid">
+        <div class="panel" style="overflow-x:auto;">
+
+            <h6>Usuários Excluidos</h6>
+            @if (Model.Any())
+            {
+                <table class="table table-sm table-striped" id="tableinativos">                  
+                    <thead class="bg-primary">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Sobrenome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CPF)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Celular)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TelefoneFixo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descricao)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sobrenome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CPF)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Celular)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TelefoneFixo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+
+                            <td class="inline">
+                                <a href="@Url.Action("RestaurarAgencuaUsuario", "AgenciaUsuario", new {id = item.UsuarioId})" data-modal="" class="btn btn-primary"
+                                   title="Restaurar usuário">
+                                    <span title="Editar" class="fa fa-mail-reply"></span>
+                                </a>
+
+                                <a href="@Url.Action("BuscarUsuariosEvento", "Eventos", new {id = item.UsuarioId})" data-modal="" class="btn btn-success"
+                                   title="Detalhes">
+                                    <span title="Detalhes" class="fa fa-info-circle"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            Nenhum Usuario Cadastrado.
+                        </th>
+                    </tr>
+                </table>
+            }
+        </div>
+
+        <ul class="pagination">
+
+            <li class="page-item">
+                @{
+                    if (ViewBag.PageNumber > 1)
+                    {
+                        <a href="@Url.Action("ListarUsuariosInativos", "AgenciaUsuario", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber - 1 })"
+                           class="page-link">«</a>
+                    }
+                    else
+                    {
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    }
+                }
+            </li>
+
+            @{
+                var atualPageNumber = ViewBag.PageNumber;
+                for (var i = 1; i <= ViewBag.TotalCount; i++)
+                {
+                    <li @(atualPageNumber == i ? "class=active" : "")>
+                        <a href="@Url.Action("ListarUsuariosInativos", "AgenciaUsuario", new {buscar = ViewBag.SearchData, pageNumber = i})" class="page-link">@i</a>
+                    </li>
+                }
+            }
+
+            <li>
+
+                @if (ViewBag.PageNumber < ViewBag.TotalCount)
+                {
+                    <a href="@Url.Action("ListarUsuariosInativos", "AgenciaUsuario", new { buscar = ViewBag.SearchData, pageNumber = ViewBag.PageNumber + 1 })"
+                       class="page-link">»</a>
+                }
+                else
+                {
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                }
+
+            </li>
+        </ul>
+
+        <h6 class="_quantidadepaginas"> Total de registros : @ViewBag.Count</h6>
+    </div>
+
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,20 @@
+﻿@model Systrade.Aplicacao.ViewModel.UserViewModel
+
+
+@using (Html.BeginForm("ListarUsuarios", "RegistroAcessoAgenciaUsuario"))
+{
+    @Html.AntiForgeryToken()
+
+    <br />
+
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" title="Buscar"><i class="fa fa-search"></i></button>
+                </span>
+                @Html.EditorFor(model => model.Buscar, new { htmlAttributes = new { @class = "form-control", @placeholder = "Buscar.." } })
+            </div>
+        </div>
+    </div>
+}

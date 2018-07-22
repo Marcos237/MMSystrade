@@ -1,0 +1,34 @@
+﻿@model Systrade.Aplicacao.ViewModel.EditarAgenciaUsuarioViewModel
+
+
+<div class="modal-header">
+    <h4 class="modal-title">Deseja restaurar esse usuário no sistema?</h4>
+    <button type="button" class="close" data-dismiss="modal" title="Fechar">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+</div>
+
+<div class="form-group-sm">
+    @Html.Partial("_ErrorSummary")
+</div>
+
+@using (Html.BeginForm("RestaurarAgencuaUsuario", "AgenciaUsuario", FormMethod.Post))
+{
+
+    <div class="modal-body">
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.HiddenFor(model => model.UsuarioId)
+
+            @Html.Partial("_DadosAgenciaUsuario")
+
+
+            <div class="modal-footer">
+                <input type="submit" value="Restaurar" class="btn btn-success" title="Restaurar" />
+                <input type="button" class="btn btn-danger" data-dismiss="modal" value="Fechar" title="Fechar" />
+            </div>
+        </div>
+    </div>
+}
